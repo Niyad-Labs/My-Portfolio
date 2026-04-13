@@ -7,7 +7,6 @@ body,html{
   overflow: hidden;
   font-family: "Poppins", sans-serif;
 }
-
 .webgl{
   position: absolute;
   top: 0;
@@ -22,5 +21,6 @@ body,html{
   left: 50%;
   top:75%;
   transform: translate(-50%,-75%);  
-  width: 80%;
+  width: 88%;
+    font-size: clamp(24px, 5vw,60px);
 }
