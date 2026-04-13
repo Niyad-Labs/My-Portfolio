@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html{
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.webgl{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.title{
+  color: #fff;
+  z-index: 2;
+  position: absolute;
+  font-size: 3rem;
+  left: 50%;
+  top:75%;
+  transform: translate(-50%,-75%);  
+  width: 80%;
+}
