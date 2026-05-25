@@ -44,6 +44,8 @@ BuildTool = Vite
 - GSAP
 - Docker
 - Flutter
+- C
+- Python
 
 [SOCIALS]
 GitHub = https://github.com/Niyad-Labs
