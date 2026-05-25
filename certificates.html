@@ -2,306 +2,192 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Certificates</title>
+
+        <style>
+                * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                        font-family: Arial, sans-serif;
+                }
+
+                body {
+                        background: #0f172a;
+                        color: #fff;
+                        padding: 20px;
+                }
+
+                h1 {
+                        text-align: center;
+                        margin-bottom: 20px;
+                        font-size: clamp(24px, 5vw, 40px);
+                }
+
+                /* GRID */
+                .cert-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 15px;
+                }
+
+                .cert-card {
+                        overflow: hidden;
+                        border-radius: 12px;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                }
+
+                .cert-card:hover {
+                        transform: scale(1.05);
+                }
+
+                .cert-card img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        border-radius: 12px;
+                }
+
+                /* MODAL */
+                .modal {
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: 0.3s ease;
+                }
+
+                .modal.show {
+                        opacity: 1;
+                        pointer-events: all;
+                }
+
+                .modal img {
+                        max-width: 90%;
+                        max-height: 90%;
+                        border-radius: 10px;
+                }
+
+                .close {
+                        position: absolute;
+                        top: 20px;
+                        right: 30px;
+                        font-size: 30px;
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                /* BACK BUTTON */
+                .back {
+                        display: inline-block;
+                        margin-bottom: 20px;
+                        color: #38bdf8;
+                        text-decoration: none;
+                }
+        </style>
 </head>
-<style>
-    * {
-        padding: 0;
-        margin: 5px 0;
-    }
-
-    .credentailUrl {
-        background-color: steelblue;
-        padding: 7px;
-    }
-
-    a {
-        all: unset;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    body {
-        font-family: sans-serif;
-        background-color: darkgray;
-    }
-
-    .fs-1 {
-        font-size: calc(1.375rem + 1.5vw) !important;
-    }
-
-    .fw-semibold {
-        font-weight: bold;
-    }
-
-    .text-bg-secondary {
-        background-color: #6c757d;
-        color: #fff;
-    }
-
-    .p-0 {
-        padding: 0;
-    }
-
-    .index-c {
-        padding-top: 15px;
-        font-weight: bold;
-    }
-
-    .col {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .certi {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .certi a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        width: 75%;
-    }
-
-    .certi a img {
-        width: 100%;
-    }
-
-    .row {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .row img {
-        width: 400px;
-    }
-
-    @media (min-width: 800px) {
-        .credentailUrl {
-            padding: 10px;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .row img {
-            width: 75%;
-        }
-
-        .certi img,
-        .certi a {
-            width: 95%;
-        }
-
-        .col {
-            display: flex;
-            justify-content: center;
-        }
-    }
-
-    footer {
-        height: 40vh;
-        background-color: #252525;
-        color: #c5c3c3;
-    }
-
-    .blueGradient {
-        background: rgb(2, 92, 255);
-        background: linear-gradient(0deg, rgb(2, 92, 255) 0%, rgb(2, 92, 255) 50%, rgb(10, 139, 217) 100%);
-    }
-
-    .contact {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding: 10px 10px 10px 10px;
-    }
-
-    .contact a {
-        cursor: pointer;
-    }
-
-    .contact a div {
-        width: 40px;
-        animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-        height: 40px;
-        border-radius: 50%;
-        border: 4px solid black;
-        display: flex;
-        align-items: center;
-        padding: 4px;
-        box-shadow: 0px 0px 13px 3px #00fbd8;
-        transition: 0.3s;
-    }
-
-    .contact a div:hover {
-        box-shadow: 0px 0px 0px 0px;
-        scale: 0.9;
-        color: #0088a9;
-    }
-
-    @keyframes fade-in-right {
-        0% {
-            transform: translateX(100px);
-            opacity: 0;
-        }
-
-        100% {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    .contact a div:nth-child(2) {
-        animation-delay: 0.3s;
-    }
-
-    .contact a div:nth-child(3) {
-        animation-delay: 0.5s;
-    }
-
-    .contact a div:nth-child(4) {
-        animation-delay: 0.7s;
-    }
-
-    /*# sourceMappingURL=certifcates.css.map */
-</style>
 
 <body>
-    <div class="text-center fs-1 p-0 text-bg-secondary fw-semibold ">Certificates</div>
-    <div class="certi">
-        <a href="https://codesignal.com/learn/certificates/cmdgz0teh001sl204z4ylhnwx/course-paths/25">
-            <span>1.</span><img class="credentailUrl" src="certificates/img/Muhammed Niyad (45).jpg"
-                alt="certificate of achievement">
-        </a>
-        <a href="https://www.mygreatlearning.com/certificate/DLGXITVV">
-            <span>2.</span><img class="credentailUrl" src="certificates/img/Muhammed Niyad (35).jpg"
-                alt="certificate of achievement">
-        </a>
-    </div>
-    <div class="row m-auto">
-        <div class="col"><img src="certificates/img/Muhammed Niyad (44).png" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (43).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (42).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (41).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (40).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (39).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (1).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (2).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (3).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (4).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (7).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (8).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (5).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (6).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (10).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (11).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (12).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (9).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+        <a href="/My-Portfolio/" class="back">← Back to Portfolio</a>
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (13).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (14).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (15).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+        <h1>My Certificates</h1>
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (16).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (17).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (18).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+        <div class="cert-grid" id="grid"></div>
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (19).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (20).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (21).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+        <!-- MODAL -->
+        <div class="modal" id="modal">
+                <span class="close" id="close">&times;</span>
+                <img id="modalImg" />
+        </div>
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (22).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (23).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (24).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+        <script>
+                const grid = document.getElementById('grid')
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (25).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (26).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (27).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+                // 👉 Add your certificate images here
+                const certificates = [
+                        './Certificate/Muhammed Niyad (1).webp',
+                        './Certificate/Muhammed Niyad (2).webp',
+                        './Certificate/Muhammed Niyad (3).webp',
+                        './Certificate/Muhammed Niyad (4).webp',
+                        './Certificate/Muhammed Niyad (5).webp',
+                        './Certificate/Muhammed Niyad (6).webp',
+                        './Certificate/Muhammed Niyad (7).webp',
+                        './Certificate/Muhammed Niyad (8).webp',
+                        './Certificate/Muhammed Niyad (9).webp',
+                        './Certificate/Muhammed Niyad (10).webp',
+                        './Certificate/Muhammed Niyad (11).webp',
+                        './Certificate/Muhammed Niyad (12).webp',
+                        './Certificate/Muhammed Niyad (13).webp',
+                        './Certificate/Muhammed Niyad (14).webp',
+                        './Certificate/Muhammed Niyad (15).webp',
+                        './Certificate/Muhammed Niyad (16).webp',
+                        './Certificate/Muhammed Niyad (17).webp',
+                        './Certificate/Muhammed Niyad (18).webp',
+                        './Certificate/Muhammed Niyad (19).webp',
+                        './Certificate/Muhammed Niyad (20).webp',
+                        './Certificate/Muhammed Niyad (21).webp',
+                        './Certificate/Muhammed Niyad (22).webp',
+                        './Certificate/Muhammed Niyad (23).webp',
+                        './Certificate/Muhammed Niyad (24).webp',
+                        './Certificate/Muhammed Niyad (25).webp',
+                        './Certificate/Muhammed Niyad (26).webp',
+                        './Certificate/Muhammed Niyad (27).webp',
+                        './Certificate/Muhammed Niyad (28).webp',
+                        './Certificate/Muhammed Niyad (29).webp',
+                        './Certificate/Muhammed Niyad (30).webp',
+                        './Certificate/Muhammed Niyad (31).webp',
+                        './Certificate/Muhammed Niyad (32).webp',
+                        './Certificate/Muhammed Niyad (33).webp',
+                        './Certificate/Muhammed Niyad (34).webp',
+                        './Certificate/Muhammed Niyad (35).webp',
+                        './Certificate/Muhammed Niyad (36).webp',
+                        './Certificate/Muhammed Niyad (37).webp',
+                        './Certificate/Muhammed Niyad (38).webp',
+                        './Certificate/Muhammed Niyad (39).webp',
+                        './Certificate/Muhammed Niyad (40).webp',
+                        './Certificate/Muhammed Niyad (41).webp',
+                        './Certificate/Muhammed Niyad (42).webp',
+                        './Certificate/Muhammed Niyad (43).webp',
+                        './Certificate/Muhammed Niyad (44).webp',
+                        './Certificate/Muhammed Niyad (45).webp',
+                ]
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (28).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (29).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (30).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+                // create cards
+                certificates.forEach(src => {
+                        const div = document.createElement('div')
+                        div.classList.add('cert-card')
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (31).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (32).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (33).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+                        const img = document.createElement('img')
+                        img.src = src
+                        img.loading = "lazy"
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (34).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (37).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
-        <div class="col"><img src="certificates/img/Muhammed Niyad (36).jpg" alt="certificate of achievement"
-                class="w-100 p-2"></div>
+                        div.appendChild(img)
+                        grid.appendChild(div)
 
-        <div class="col"><img src="certificates/img/Muhammed Niyad (38).jpg" alt="certificate of achievement"
-                width="450" class=" p-2"></div>
-    </div>
+                        // click to open modal
+                        div.addEventListener('click', () => {
+                                modal.classList.add('show')
+                                modalImg.src = src
+                        })
+                })
+
+                const modal = document.getElementById('modal')
+                const modalImg = document.getElementById('modalImg')
+                const closeBtn = document.getElementById('close')
+
+                closeBtn.onclick = () => modal.classList.remove('show')
+                modal.onclick = () => modal.classList.remove('show')
+        </script>
+
 </body>
-<script>
-    let col = document.querySelectorAll('.col');
-    let index = 3;
-    col.forEach(element => {
-        let span = document.createElement('span');
-        span.textContent = index + '.';
-        span.classList.add('index-c');
-        element.prepend(span);
-        index++;
-    });
-
-</script>
 
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://niyad-labs.github.io/My-Portfolio/sitemap.xml

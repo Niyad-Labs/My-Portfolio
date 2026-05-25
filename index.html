@@ -3,67 +3,71 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-  <title>my-portfolio</title>
-  <!-- for temparary -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-  <!-- end of tempoarory -->
+  <meta name="description"
+    content="Muhammed Niyad is a MERN stack developer specializing in React, Node.js, PostgreSQL, and FastAPI.">
+  <title>Muhammed Niyad | MERN Stack developer</title>
+  <link rel="manifest" href='/manifest.json' />
+  <link rel='icon' href="favicon.ico" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script type="module" src="/src/main.js"></script>
+
 </head>
 
-<body>
-  <!-- for temparory -->
-  <nav class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Muhammed Niyad</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Connect with me</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link " href="https://www.linkedin.com/in/muhammed-niyad/" target="_blank">Linkedin
-                Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/Niyad-Labs">GitHub Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" onclick="window.open('resume/MuhammedNiyad_FullStack_resume.pdf', '_blank')">Resume
-              </a>
-            </li>
-            <li class=" nav-item">
-              <a class="nav-link" href="certificates.html">Certificates</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="mailto:muhammedniyad720@gmail.com" target="_blank">E-mail</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.instagram.com/mr.niyad/" target="_blank">Instagram</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://wa.me/918606079774" target="_blank">Whatsapp</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- end of temporary -->
+<body style="background-color: #000000;">
+  <div id="loading-screen">
+    <h1>Loading...</h1>
+    <div class="loader"></div>
+  </div>
+
+  <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open">
   <canvas class="webgl"></canvas>
-  <h1 class="title">"Currently Upgrading My Portfolio Enhanced 3D Experience, Stay Tuned "</h1>
-  <script type="module" src="/src/main.js"></script>
+  <nav class="menu">
+    <label class="menu-open-button" for="menu-open">
+      <span class="lines line-1"></span>
+      <span class="lines line-2"></span>
+      <span class="lines line-3"></span>
+    </label>
+  </nav>
+  <div class="items">
+    <a href="#" class="menu-item-head ">Connect With Me </a>
+    <a href="mailto:muhammedniyad720@gmail.com" class="menu-item green">
+      <img src="./icons/gmail.webp" width="40" alt="E-mail">
+    </a>
+    <a href="https://www.instagram.com/mr.niyad" class="menu-item pink">
+      <img src="./icons/instagram (1).webp" width="40" alt="">
+    </a>
+    <a href="https://github.com/Niyad-Labs" class="menu-item purple">
+      <img src="./icons/github (1).webp" width="100%" alt="Github">
+      <span class="tooltip">GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/muhammed-niyad" class="menu-item orange">
+      <img src="./icons/linkedin.webp" width="100%" alt="">
+    </a>
+    <a href="./resume/MuhammedNiyad_FullStack_resume.pdf" class="menu-item lightblue">
+      <img src="./icons/resume.webp" width="50" alt="">
+      <span class="tooltip">Resume</span>
+    </a>
+    <a href="./certificates.html" class="menu-item blue">
+      <img src="./icons/winner.webp" width="40" alt="100%">
+      <span class="tooltip">Certificates</span>
+    </a>
+    <a href="https://wa.me/918606079774" class="menu-item green">
+      <img src="./icons/social.webp" width="100%" alt=""></a>
+  </div>
+  <!-- <button class="btn">View on GitHub</button> -->
+  <!-- From Uiverse.io by aguerquin -->
+  <a class="button-icon" id="repoLink">
+    <div class="icon">
+      <img src="./icons/github (1).webp" alt="git" height="100%">
+    </div>
+    <div class="cube">
+      <span class="side front" id="head"></span>
+      <span class="side top">check it on github</span>
+    </div>
+  </a>
+
 </body>
 
 </html>

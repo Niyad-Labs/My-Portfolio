@@ -1,0 +1,35 @@
+/* TEAM */
+
+Developer: Muhammed Niyad
+Role: Full-Stack Developer
+Location: Kerala, India
+
+Skills: MERN Stack, FastAPI, PostgreSQL, MongoDB, Flutter, Docker, Three.js
+
+Portfolio:
+https://niyad-labs.github.io/My-Portfolio/
+
+GitHub:
+https://github.com/Niyad-Labs
+
+LinkedIn:
+https://linkedin.com/in/muhammed-niyad
+
+Email:
+muhammedniyad720@gmail.com
+
+wellfound:
+https://www.wellfound.com/u/muhammed-niyad
+
+instagram:
+https://www.instagram.com/mr.niyad
+
+/* SITE */
+
+Site Name: Niyad Labs Portfolio
+Version: 1.0
+Built With:
+Three.js, GSAP, HTML, CSS, JavaScript
+
+Description:
+Interactive 3D developer portfolio with scrolling animations and project showcase.
