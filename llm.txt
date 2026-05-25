@@ -1,0 +1,64 @@
+# llm.txt
+
+[PROJECT]
+Name = Niyad Labs Portfolio
+Type = 3D Developer Portfolio
+Author = Muhammed Niyad
+
+[ABOUT]
+A modern interactive 3D portfolio built using Three.js and GSAP.
+The portfolio showcases projects, skills, certificates, social links,
+resume, and developer information with scroll-based animations.
+
+[TECH_STACK]
+Frontend = HTML, CSS, JavaScript
+3D = Three.js
+Animation = GSAP
+Text = Troika Three Text
+BuildTool = Vite
+
+[FEATURES]
+- Scroll controlled 3D camera animation
+- Interactive project showcase
+- Skill display in 3D environment
+- Certificate carousel
+- Animated loading screen
+- Responsive fullscreen canvas
+- GitHub Pages deployment
+- Dynamic UI popup buttons
+- Performance optimized assets
+
+[PROJECTS]
+- PixelPact
+- AI + Blockchain digital art marketplace
+- MERN + FastAPI + Flutter integrations
+
+[SKILLS]
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- PostgreSQL
+- FastAPI
+- Three.js
+- GSAP
+- Docker
+- Flutter
+
+[SOCIALS]
+GitHub = https://github.com/Niyad-Labs
+LinkedIn = https://www.linkedin.com/in/muhammed-niyad
+Portfolio = https://niyad-labs.github.io/My-Portfolio/
+instagram = https://www.instagram.com/mr.niyad
+wellfound = https://www.wellfound.com/u/muhammed-niyad
+
+[CONTACT]
+Email = muhammedniyad720@gmail.com
+Location = Kerala, India
+
+[SEO]
+Keywords = Full Stack Developer, MERN Stack, Three.js Portfolio, GSAP Animation, Web Developer, DevOps, React Developer
+
+[NOTES]
+This project is optimized for desktop and modern browsers.
+3D interactions may require hardware acceleration enabled.
