@@ -8,7 +8,7 @@ export function Project(scene) {
     projectNo1.text = "Project 1"
     projectNo1.fontSize = 0.5
     projectNo1.color = 0xffffff
-    projectNo1.position.set(-6.7, 2.6, -55)
+    projectNo1.position.set(-6.7, 2.6, -60)
 
     projectNo1.castShadow = true
     projectNo1.receiveShadow = true
@@ -18,7 +18,7 @@ export function Project(scene) {
     prj1Head.text = "PIXEL PACT"
     prj1Head.fontSize = 0.5
     prj1Head.color = 0xffffff
-    prj1Head.position.set(-6.7, 2, -55)
+    prj1Head.position.set(-6.7, 2, -60)
 
     prj1Head.castShadow = true
     prj1Head.receiveShadow = true
@@ -28,7 +28,7 @@ export function Project(scene) {
     prjsubhead1.text = "AI-POWERED DIGITAL ART WITH BLOCKCHAIN OWNERSHIP"
     prjsubhead1.fontSize = 0.5
     prjsubhead1.color = 0xffffff
-    prjsubhead1.position.set(-6.7, 1.4, -55)
+    prjsubhead1.position.set(-6.7, 1.4, -60)
 
     prjsubhead1.castShadow = true
     prjsubhead1.receiveShadow = true
@@ -43,7 +43,7 @@ export function Project(scene) {
     prjContent1.fontSize = 0.4
     prjContent1.maxWidth = 13.5
     prjContent1.color = 0xffffff
-    prjContent1.position.set(-6.7, 0.8, -55)
+    prjContent1.position.set(-6.7, 0.8, -60)
     prjContent1.textAlign = 'justify'
 
     prjContent1.castShadow = true
@@ -56,7 +56,7 @@ export function Project(scene) {
     projectNo2.text = "Project 2"
     projectNo2.fontSize = 0.5
     projectNo2.color = 0xffffff
-    projectNo2.position.set(-6.7, 2.6, -72)
+    projectNo2.position.set(-6.7, 2.6, -77)
 
     projectNo2.castShadow = true
     projectNo2.receiveShadow = true
@@ -66,7 +66,7 @@ export function Project(scene) {
     prj2Head.text = "SHARE WITH NODE"
     prj2Head.fontSize = 0.5
     prj2Head.color = 0xffffff
-    prj2Head.position.set(-6.7, 2, -72)
+    prj2Head.position.set(-6.7, 2, -77)
 
     prj2Head.castShadow = true
     prj2Head.receiveShadow = true
@@ -76,7 +76,7 @@ export function Project(scene) {
     prjsubhead2.text = "SECURE LOCAL FILE SHARING WITH REAL-TIME STREAMING"
     prjsubhead2.fontSize = 0.5
     prjsubhead2.color = 0xffffff
-    prjsubhead2.position.set(-6.7, 1.4, -72)
+    prjsubhead2.position.set(-6.7, 1.4, -77)
 
     prjsubhead2.castShadow = true
     prjsubhead2.receiveShadow = true
@@ -92,7 +92,7 @@ export function Project(scene) {
     prjContent2.fontSize = 0.4
     prjContent2.maxWidth = 13.5
     prjContent2.color = 0xffffff
-    prjContent2.position.set(-6.7, 0.8, -72)
+    prjContent2.position.set(-6.7, 0.8, -77)
     prjContent2.textAlign = 'justify'
 
     prjContent2.castShadow = true

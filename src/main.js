@@ -21,9 +21,10 @@ const loadingManager = new THREE.LoadingManager()
 loadingManager.onStart = () => {
   console.log('Loading started')
 }
-
+let load_P = document.getElementById("load_P")
 loadingManager.onProgress = (url, loaded, total) => {
   console.log(`${loaded}/${total}`)
+  load_P.innerText = (loaded / total) * 100 + '%'
 }
 
 loadingManager.onLoad = () => {
@@ -68,8 +69,8 @@ const camera = sizes.width < 768 ?
   new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100)
 
 camera.position.z = 10
+camera.lookAt(0, 0, -130)
 scene.add(camera)
-
 // fog
 scene.fog = new THREE.Fog(0x000000, 10, 40)
 
@@ -174,14 +175,14 @@ window.addEventListener("resize", () => {
   sizes.height = window.innerHeight;
 
   // update camera
-  camera.updateProjectionMatrix()
   camera.aspect = sizes.width / sizes.height
+  camera.updateProjectionMatrix()
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
 
   controls.update();
 })
-// clock
+/// clock
 const timer = new THREE.Timer();
 
 const loop = () => {
@@ -195,8 +196,6 @@ const loop = () => {
 }
 loop()
 
-// time magic
-// const t1 = gsap.timeline({ defaults: { duration: 1 } })
 
 ScrollTrigger.create({
   target: document.body,
@@ -207,6 +206,6 @@ ScrollTrigger.create({
 
     PointLight.position.z = 0 - self.progress * 100
     camera.position.z = 0 - self.progress * 100 + 10
-    camera.lookAt(0, 0 + self.progress * 2, -100)
+    // camera.lookAt(0, 0 + self.progress * 2, -100)
   }
 })

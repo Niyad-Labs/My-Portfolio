@@ -21,7 +21,7 @@ export function loadBee(scene, loader) {
 
         // scale / positon
         beeModel.scale.set(0.2, 0.2, 0.2)
-        beeModel.position.set(2, -3, -2)
+        beeModel.position.set(2, -3, -1)
         beeModel.rotation.y += -1
         beeModel.traverse((child) => {
             if (child.isMesh) {
@@ -44,24 +44,38 @@ export function loadBee(scene, loader) {
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: true,
+                // onLeave: () => { //reached bottom
+                //     gsap.to(beeModel.position, { z: -100, y: -3, x: 2, duration: 1 })
+                //     gsap.to(beeModel.scale, { z: 0.2, y: 0.2, x: 0.2, duration: 1, ease: "power2.out" })
+
+                //     switchAction(actions['_bee_idle'])
+                // },
+                onLeaveBack: () => {//reached top
+                    gsap.to(beeModel.position, { z: -1, y: -3, x: 2, duration: 1 })
+                    gsap.to(beeModel.scale, { z: 0.2, y: 0.2, x: 0.2, duration: 1, ease: "power2.out" })
+
+                    switchAction(actions['_bee_idle'])
+                },
                 onUpdate: (self) => {
-                    if (self.direction == 1) {
+                    if (self.direction == 1 && (0 - self.progress * 100 - 8) > -100) {
                         gsap.to(beeModel.rotation, { y: THREE.MathUtils.degToRad(-170), duration: 0.8, ease: "power2.out" })
-                        gsap.to(beeModel.position, { z: (0 - self.progress * 100 - 5), y: 1, x: 3, duration: 0.8, ease: "power2.out" })
+                        gsap.to(beeModel.position, { z: Math.max(0 - self.progress * 100, -100), y: 1, x: 3, duration: 0.8, ease: "power2.out" })
                         gsap.to(beeModel.scale, { z: 0.1, y: 0.1, x: 0.1, duration: 0.8, ease: "power2.out" })
                         switchAction(actions['_bee_hover'])
                         clearTimeout(scrollTimeout)
                         scrollTimeout = setTimeout(() => {
                             gsap.to(beeModel.rotation, { y: -1, duration: 0.8 })
-                            gsap.to(beeModel.position, { z: 0 - self.progress * 100, y: -3, x: 2, duration: 1 })
-                            gsap.to(beeModel.scale, { z: 0.2, y: 0.2, x: 0.2, duration: 1, ease: "power2.out" })
+                            // gsap.to(beeModel.position, { z: 0 - self.progress * 100, y: -3, x: 2, duration: 1 })
+                            // gsap.to(beeModel.scale, { z: 0.2, y: 0.2, x: 0.2, duration: 1, ease: "power2.out" })
 
-                            switchAction(actions['_bee_idle'])
+                            // switchAction(actions['_bee_idle'])
                         }, 500)
                     }
-                    // else {
-                    //     // switchAction(actions['_bee_take_off_and_land'])
-                    // }
+                    else {
+                        switchAction(actions['_bee_hover'])
+                        gsap.to(beeModel.rotation, { y: 0, duration: 0.8 })
+                        gsap.to(beeModel.position, { z: Math.max(0 - self.progress * 100 - 5, -100), y: 1, x: 3, duration: 0.8, ease: "power2.out" })
+                    }
                 }
             }
 
